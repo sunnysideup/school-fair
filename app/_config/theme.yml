@@ -1,0 +1,11 @@
+---
+Name: app-theme
+---
+SilverStripe\View\SSViewer:
+  themes:
+    - "$public"
+    - theme-info-only
+    - "$default"
+
+Sunnysideup\WebpackRequirementsBackend\Api\Configuration:
+  webpack_theme: theme-info-only

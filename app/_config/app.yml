@@ -1,0 +1,8 @@
+---
+Name: app
+---
+SilverStripe\Core\Manifest\ModuleManifest:
+  project: app
+
+SilverStripe\Control\Email\Email:
+  admin_email: "no-reply@schools.com"

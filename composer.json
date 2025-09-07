@@ -1,0 +1,106 @@
+{
+  "name": "sunnysideup/schoolfair",
+  "description": "A web app to manage a school fair",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Sunny Side Up",
+      "homepage": "http://www.sunnysideup.co.nz",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=8.3",
+    "bimthebam/silverstripe-native-color-input": "*",
+    "sandervanscheepen/silverstripe-cms-userswitcher": "dev-master",
+    "silverstripe/mfa": " ^5",
+    "silverstripe/recipe-cms": "^5",
+    "silverstripe/tagfield": "^3",
+    "silverstripe/totp-authenticator": "^5",
+    "silverstripe/webauthn-authenticator": "^5",
+    "sunnysideup/automated-content-management": "dev-main",
+    "sunnysideup/cms-dark-theme": "dev-main",
+    "sunnysideup/cms-niceties": "dev-master",
+    "sunnysideup/cms_edit_link_field": "dev-master",
+    "sunnysideup/dashboard-welcome-quicklinks": "dev-master",
+    "sunnysideup/email_address_database_field": "dev-master",
+    "sunnysideup/export-all-from-modeladmin": "dev-master",
+    "sunnysideup/flush-front-end": "dev-master",
+    "sunnysideup/hasoneedit": "dev-master",
+    "sunnysideup/permission_provider": "dev-master",
+    "sunnysideup/phone_field": "dev-master",
+    "sunnysideup/release": "dev-master",
+    "sunnysideup/sentry-made-easy": "dev-master",
+    "sunnysideup/silverstripe-externalurlfield": "dev-master",
+    "sunnysideup/simple-template-caching": "dev-master",
+    "sunnysideup/site-wide-search": "dev-master",
+    "sunnysideup/title_dataobject": "dev-master",
+    "sunnysideup/webpack_requirements_backend": "dev-master",
+    "sunnysideup/yes-no-any-filter": "dev-master",
+    "symbiote/silverstripe-grouped-cms-menu": "^4.1"
+  },
+  "require-dev": {
+    "sunnysideup/sswebpack_engine_only": "dev-master",
+    "sunnysideup/templateoverview": "dev-master",
+    "silverleague/ideannotator": "*",
+    "friendsofphp/php-cs-fixer": "*"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:sunnysideup/silverstripe-cms-userswitcher.git"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "SchoolFair\\App\\": "app/src/"
+    },
+    "files": [
+      "app/src/Page.php",
+      "app/src/PageController.php"
+    ]
+  },
+  "files-to-add": [
+    "app/src/Page.php",
+    "app/src/PageController.php"
+  ],
+  "extra": {
+    "expose": [
+      "app/client"
+    ],
+    "resources-dir": "_resources",
+    "project-files-installed": [
+      ".htaccess",
+      "app/.htaccess",
+      "app/_config/mimevalidator.yml",
+      "app/_config/mysite.yml",
+      "app/src/Page.php",
+      "app/src/PageController.php"
+    ],
+    "public-files-installed": [
+      ".htaccess",
+      "index.php",
+      "web.config"
+    ]
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "silverstripe/vendor-plugin": true,
+      "silverstripe/recipe-plugin": true,
+      "php-http/discovery": true,
+      "composer/installers": true
+    }
+  },
+  "conflict": [],
+  "scripts": {
+    "post-install-cmd": [
+      "vendor/bin/sake dev/tasks/Firesphere-CSPHeaders-Tasks-SRIRefreshTask"
+    ],
+    "post-update-cmd": [
+      "vendor/bin/sake dev/tasks/Firesphere-CSPHeaders-Tasks-SRIRefreshTask"
+    ]
+  }
+}

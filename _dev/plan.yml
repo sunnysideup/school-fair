@@ -1,0 +1,75 @@
+child:
+  db:
+    - name of Child
+  has_one:
+    - SchoolClass
+  has_many:
+    - Parents
+
+Fair:
+  db:
+    - Start Date
+    - End Date
+  has_many:
+    - FairEvents
+
+
+Parent extends Member:
+  db: 
+    - first name
+    - last name
+    - email
+    - phone
+  has_many:
+    - children
+    - groups (as admin)
+    - parent fairs
+  many_many:
+    - RosterEvents
+
+SchoolClass:
+  has_many:
+    - Children
+  has_many:
+    - ClassReps(Parents)
+
+ParentGroup extends Group:
+  db:
+    - name of Group
+    - description
+  has_many:
+    - ParentGroups
+  many_many:
+    - members (Parents)
+    - admins (Parents)
+
+RosterEntries:
+  db: 
+    - Title
+    - Description
+    - Date
+    - Time
+    - Location
+    - Number of Parents Needed
+  has_one:
+    - FairEvent
+    - MainContact (Parent)
+  belongs_many_many:
+    - Parents
+
+
+FairEvent:
+  db:
+    - Title
+    - Description
+    - DateTime
+    - Location
+has_one:
+  - ParentGroup
+  - Fair
+has_many:
+  - FairEvents
+  - RosterEntries
+belongs_many_many:
+  - Fairs
+
